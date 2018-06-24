@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="jquery.min"></script>
+	<style >
+		#lol{
+			border:solid black 1px;
+			font-size: 14px;
+		}
+	</style>
+</head>
+<body>
+	<font face="verdana" >
+	<table id="lol" name"lol>
+		
+		<thead>
+			<th>Aluno</th>
+			<th>Nota 1</th>
+			<th>Nota 2</th>
+			<th>Nota Final</th>
+			<th>Prova Final</th>
+			<th>Situação</th>
+		</thead>
+			<tbody id='corpo'>
+				<tr>
+			<td>João</td>
+			<td>10</td>
+			<td>9</td>
+			<td>9,5</td>
+			<td>10</td>
+			<td>Aprovado</td>
+				</tr>
+				<tr>
+			<td>Maria</td>
+			<td>8</td>
+			<td>9</td>
+			<td>8,5</td>
+			<td>10</td>
+			<td>Aprovado</td>
+				</tr>
+				<tr>
+			<td>José</td>
+			<td>7</td>
+			<td>6</td>
+			<td>6,5</td>
+			<td>10</td>
+			<td>Aprovado</td>
+				</tr>
+			</tbody>
+		
+	</table>
+    <button onclick="muda()">Muda João</button>
+
+   
+   <div >
+    	<div>
+    		Nome do Aluno:<br>
+    		<input type="text" id="Aluno" name="Aluno" >
+    	</div>
+    	<div>
+    		Nota 1:<br>
+    		<input type="number" id="Nota1" name="Nota1" min="0" max="10" >
+    	</div>
+    	<div>
+    		Nota 2:<br>
+    		<input type="number" id="Nota2"  name="Nota2" min="0" max="10" >
+    	</div>
+   	<div>
+    		Nota Final:<br>
+    		<input type="number" id="NotaF"  name="NotaF" min="0" max="10" >
+    	</div>
+    	<div>
+    		Prova Final:<br>
+   		<input type="number" id="PF"  name="PF" min="0" max="10" >
+    	</div>
+    	<div>
+    		<label>
+    		Situação:<br>
+    		<input type="radio" id="Situacao"  name="Situacao" value="Aprovado">Aprovado<br>
+			<input type="radio" id="Situacao" name="Situacao" value="Reprovado">Reprovado<br>
+		   </label>
+		</div>
+		<button id='envia'">Inserir Dados</button>
+	</div>
+
+    
+	<script>
+		function muda(){
+			var m = document.getElementById("lol").rows[1].cells;
+			if (m[5].innerHTML== "Reprovado") {
+				m[5].innerHTML= "Aprovado";
+			}else
+			m[5].innerHTML= "Reprovado";
+		}
+</script>
+
+	
+
+
+	<script>
+
+		$(document).ready(function(){
+   
+    		$("#envia").click(function(){
+    			var nome = document.getElementById('Aluno').value;
+    			var nota1 = document.getElementById('Nota1').value;
+    			var nota2 = document.getElementById('Nota2').value;
+    			var notaf = document.getElementById('NotaF').value;
+    			var pf = document.getElementById('PF').value;
+    			var situacao = document.getElementById('Situacao').value;
+
+        ($("#lol tbody")).append("<tr><td>"+nome+"</td><td>"+nota1+"</td><td>"+nota2+"</td><td>"+notaf+"</td><td>"+pf+"</td><td>"+situacao+"</td></tr>");
+        //($("#lol")).load("Servidor.txt");
+
+
+		
+	</script>
+
+		
+	
+
+</body>
+</html>
